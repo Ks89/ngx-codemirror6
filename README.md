@@ -53,7 +53,15 @@ width="200">
 - `npm install --save @ks89/ngx-codemirror6`
 
 Also, you need Codemirror packages as peer dependencies
-`npm i --save codemirror`
+```
+npm i --save codemirror
+npm i --save @codemirror/lang-html
+npm i --save @codemirror/lang-javascript
+npm i --save @codemirror/lang-sass
+npm i --save @codemirror/state
+npm i --save @codemirror/view
+npm i --save @ddietr/codemirror-themes
+```
 
 <br />
 
