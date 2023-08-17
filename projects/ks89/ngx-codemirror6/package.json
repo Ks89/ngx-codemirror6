@@ -1,0 +1,36 @@
+{
+  "name": "@ks89/ngx-codemirror6",
+  "version": "1.0.0",
+  "description": "Codemirror 6 library for Angular",
+  "license": "MIT",
+  "author": "Stefano Cappa",
+  "engines": {
+    "node": ">=18.12.1",
+    "npm": ">=8.19.2"
+  },
+  "homepage": "https://github.com/Ks89/ngx-codemirror6",
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "peerDependencies": {
+    "@angular/common": ">=16.0.0",
+    "@angular/core": ">=16.0.0",
+    "codemirror": ">=6.0.0"
+  },
+  "keywords": [
+    "ngx-codemirror",
+    "ngx-codemirror6",
+    "codemirror",
+    "angular",
+    "codemirror6",
+    "codemirror 6"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ks89/ngx-codemirror6.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ks89/ngx-codemirror6/issues"
+  },
+  "sideEffects": false
+}
