@@ -9,25 +9,6 @@
   <a href="https://www.npmjs.com/package/@ks89/ngx-codemirror6">
     <img src="https://img.shields.io/npm/v/@ks89/ngx-codemirror6.svg?style=flat-square" alt="npm@latest">
   </a>
-  <a href="https://www.npmjs.com/package/@ks89/ngx-codemirror6">
-      <img src="https://img.shields.io/npm/v/@ks89/ngx-codemirror6/beta.svg?style=flat-square" alt="npm@beta">
-    </a>
-  <a href="https://www.npmjs.com/package/@ks89/ngx-codemirror6">
-    <img src="https://img.shields.io/npm/v/@ks89/ngx-codemirror6/next.svg?style=flat-square" alt="npm@next">
-  </a>
-</p>
-<p align="center">
-  <a href="https://www.npmjs.com/package/@ks89/ngx-codemirror6"><img src="https://img.shields.io/npm/dw/@ks89/ngx-codemirror6.svg?style=flat-square" 
-alt="Downloads/week"></a>
-  <a href="https://www.npmjs.com/package/@ks89/ngx-codemirror6"><img src="https://img.shields.io/npm/dm/@ks89/ngx-codemirror6.svg?style=flat-square" 
-alt="Downloads/month"></a>
-  <a href="https://www.npmjs.com/package/@ks89/ngx-codemirror6"><img src="https://img.shields.io/npm/dy/@ks89/ngx-codemirror6.svg?style=flat-square" 
-alt="Downloads/year"></a>
-</p>
-<p align="center">
-  <a href="https://stackblitz.com/edit/ngx-codemirror6"><img src="https://img.shields.io/badge/stackblitz-available-orange.svg" alt="Stackblitz"></a>
-  <a href="https://www.npmjs.com/package/@ks89/ngx-codemirror6"><img src="https://img.shields.io/badge/angular--style--guide-compliant-brightgreen.svg" 
-alt="AngularStyleGuide"></a>
 </p>
 <p align="center">
   <a href="https://www.npmjs.com/package/@ks89/ngx-codemirror6"><img src="https://img.shields.io/npm/l/@ks89/ngx-codemirror6.svg?style=flat-square" 
