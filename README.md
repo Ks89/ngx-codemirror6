@@ -3,8 +3,6 @@
 <h3 align="center"><b>@ks89/ngx-codemirror6</b> is an Angular library to use Codemirror6 library as an Angular Component</h3>
 <br />
 
-<br />
-
 <p align="center">
   <a href="https://www.npmjs.com/package/@ks89/ngx-codemirror6">
     <img src="https://img.shields.io/npm/v/@ks89/ngx-codemirror6.svg?style=flat-square" alt="npm@latest">
