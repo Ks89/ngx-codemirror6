@@ -22,14 +22,7 @@
  * SOFTWARE.
  */
 
-import {
-  Component,
-  ElementRef,
-  Input,
-  ViewChild,
-  forwardRef,
-  AfterViewInit
-} from '@angular/core';
+import { Component, ElementRef, Input, ViewChild, forwardRef, AfterViewInit } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { EditorView, lineNumbers } from '@codemirror/view';
@@ -40,12 +33,13 @@ import { css } from '@codemirror/lang-css';
 import { javascript } from '@codemirror/lang-javascript';
 import { sass } from '@codemirror/lang-sass';
 import { materialDark } from '@ddietr/codemirror-themes/material-dark';
+import { basicSetup } from 'codemirror';
 
 /**
  * CodeMirror component
  */
 @Component({
-  selector: 'codemirror',
+  selector: 'ks-codemirror',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -56,7 +50,7 @@ import { materialDark } from '@ddietr/codemirror-themes/material-dark';
   template: `<div #host></div>`
 })
 export class CodemirrorComponent implements AfterViewInit {
-  @Input() content: string = 'placeholder text';
+  @Input() content: string = '';
   @Input() appendExtensions: Extension[] = [];
   @Input() language: string = '';
 
@@ -64,18 +58,18 @@ export class CodemirrorComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     let lang: LanguageSupport;
-    switch(this.language) {
+    switch (this.language) {
       case 'html':
         lang = html();
         break;
       case 'javascript':
-        lang = javascript({typescript: false, jsx: false});
+        lang = javascript({ typescript: false, jsx: false });
         break;
       case 'typescript':
-        lang = javascript({typescript: true, jsx: false});
+        lang = javascript({ typescript: true, jsx: false });
         break;
       case 'jsx':
-        lang = javascript({typescript: false, jsx: true});
+        lang = javascript({ typescript: false, jsx: true });
         break;
       case 'css':
         lang = css();
@@ -84,19 +78,13 @@ export class CodemirrorComponent implements AfterViewInit {
         lang = sass();
         break;
       case 'sass':
-        lang = sass({indented: true});
+        lang = sass({ indented: true });
         break;
       default:
         throw new Error('Internal ngx-codemirror6 error - unrecognized language');
     }
 
-    const extensions: Extension[] = [
-      lineNumbers(),
-      lang,
-      materialDark,
-      EditorState.readOnly.of(true),
-      ...this.appendExtensions
-    ];
+    const extensions: Extension[] = [lineNumbers(), lang, materialDark, basicSetup, EditorState.readOnly.of(true), ...this.appendExtensions];
     const config: EditorStateConfig = {
       doc: this.content,
       extensions: extensions
