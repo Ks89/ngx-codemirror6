@@ -67,7 +67,8 @@ npm i --save @ddietr/codemirror-themes
 
 |            | @ks89/ngx-codemirror6 |
 |------------|:---------------------:|
-| Angular 16 |      &gt;= 1.0.0      |
+| Angular 16 |        = 1.0.0        |
+| Angular 18 |      &gt;= 2.0.0      |
 
 <br />
 
@@ -79,6 +80,7 @@ Check the official example in `./src`.
 
 ## :fire: News :fire:
 
+- 30/05/2024 - 2.0.0 - @ks89/ngx-codemirror6 - [HERE](https://github.com/Ks89/ngx-codemirror6/releases)
 - 17/08/2019 - 1.0.0 - @ks89/ngx-codemirror6 - [HERE](https://github.com/Ks89/ngx-codemirror6/releases)
 
 <br />
@@ -97,7 +99,7 @@ In this way, [prettier](https://prettier.io/) will run using my configuration an
 
 The MIT License (MIT)
 
-Copyright (c) 2023 Stefano Cappa (Ks89)
+Copyright (c) 2023-2024 Stefano Cappa
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
