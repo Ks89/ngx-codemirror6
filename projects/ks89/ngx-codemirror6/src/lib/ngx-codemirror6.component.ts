@@ -32,7 +32,6 @@ import { html } from '@codemirror/lang-html';
 import { css } from '@codemirror/lang-css';
 import { javascript } from '@codemirror/lang-javascript';
 import { sass } from '@codemirror/lang-sass';
-import { materialDark } from '@ddietr/codemirror-themes/material-dark';
 import { basicSetup } from 'codemirror';
 
 /**
@@ -84,7 +83,7 @@ export class CodemirrorComponent implements AfterViewInit {
         throw new Error('Internal ngx-codemirror6 error - unrecognized language');
     }
 
-    const extensions: Extension[] = [lineNumbers(), lang, materialDark, basicSetup, EditorState.readOnly.of(true), ...this.appendExtensions];
+    const extensions: Extension[] = [lineNumbers(), lang, basicSetup, EditorState.readOnly.of(true), ...this.appendExtensions];
     const config: EditorStateConfig = {
       doc: this.content,
       extensions: extensions

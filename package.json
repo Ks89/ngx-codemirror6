@@ -56,7 +56,6 @@
     "@codemirror/lang-sass": "^6.0.2",
     "@codemirror/state": "^6.2.1",
     "@codemirror/view": "^6.16.0",
-    "@ddietr/codemirror-themes": "^1.4.2",
     "codemirror": "^6.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
