@@ -67,6 +67,7 @@ npm i --save @codemirror/view
 |            | @ks89/ngx-codemirror6 |
 |------------|:---------------------:|
 | Angular 16 |        = 1.0.0        |
+| Angular 17 |        = 1.0.0        |
 | Angular 18 |      &gt;= 2.0.1      |
 
 <br />
