@@ -9,7 +9,6 @@ If you want to help me, modify the source code, but **before to create a pull re
 4. `npm run clean:all`
 5. `npm run build:lib`
 6. `npm start`
-7. `npm test`
 
 # B. Create your pull request
 1. **If it is ok, create your pull request specifying all the details**
