@@ -38,15 +38,16 @@ import { basicSetup } from 'codemirror';
  * CodeMirror component
  */
 @Component({
-  selector: 'ks-codemirror',
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => CodemirrorComponent),
-      multi: true
-    }
-  ],
-  template: `<div #host></div>`
+    selector: 'ks-codemirror',
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => CodemirrorComponent),
+            multi: true
+        }
+    ],
+    template: `<div #host></div>`,
+    standalone: false
 })
 export class CodemirrorComponent implements AfterViewInit {
   @Input() content: string = '';
