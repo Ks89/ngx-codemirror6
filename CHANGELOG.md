@@ -1,3 +1,6 @@
+# 3.0.0
+- upgrade library to angular 21.0.0 **(BREAKING CHANGES)**
+
 # 2.0.1
 - remove material dark theme
 - remove @ddietr/codemirror-themes dependency

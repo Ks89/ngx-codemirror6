@@ -68,7 +68,10 @@ npm i --save @codemirror/view
 |------------|:---------------------:|
 | Angular 16 |        = 1.0.0        |
 | Angular 17 |        = 1.0.0        |
-| Angular 18 |      &gt;= 2.0.1      |
+| Angular 18 |        = 2.0.1        |
+| Angular 19 |        = 2.0.1        |
+| Angular 20 |        = 2.0.1        |
+| Angular 21 |      &gt;= 3.0.0      |
 
 <br />
 
@@ -80,6 +83,7 @@ Check the official example in `./src`.
 
 ## :fire: News :fire:
 
+- 26/12/2024 - 3.0.0 - @ks89/ngx-codemirror6 - [HERE](https://github.com/Ks89/ngx-codemirror6/releases)
 - 30/05/2024 - 2.0.1 - @ks89/ngx-codemirror6 - [HERE](https://github.com/Ks89/ngx-codemirror6/releases)
 - 30/05/2024 - 2.0.0 - @ks89/ngx-codemirror6 - [HERE](https://github.com/Ks89/ngx-codemirror6/releases)
 - 17/08/2019 - 1.0.0 - @ks89/ngx-codemirror6 - [HERE](https://github.com/Ks89/ngx-codemirror6/releases)
