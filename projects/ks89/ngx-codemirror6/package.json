@@ -1,6 +1,6 @@
 {
   "name": "@ks89/ngx-codemirror6",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Codemirror 6 library for Angular",
   "license": "MIT",
   "author": "Stefano Cappa",
@@ -13,8 +13,8 @@
     "tslib": ">=2.3.0"
   },
   "peerDependencies": {
-    "@angular/common": ">=18.0.0",
-    "@angular/core": ">=18.0.0",
+    "@angular/common": ">=22.0.0",
+    "@angular/core": ">=22.0.0",
     "@codemirror/lang-html": ">=6.4.9",
     "@codemirror/lang-javascript": ">=6.2.2",
     "@codemirror/lang-sass": ">=6.0.2",

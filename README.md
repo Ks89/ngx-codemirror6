@@ -71,7 +71,8 @@ npm i --save @codemirror/view
 | Angular 18 |        = 2.0.1        |
 | Angular 19 |        = 2.0.1        |
 | Angular 20 |        = 2.0.1        |
-| Angular 21 |      &gt;= 3.0.0      |
+| Angular 21 |        = 3.0.0        |
+| Angular 22 |      &gt;= 4.0.0      |
 
 <br />
 
@@ -83,6 +84,7 @@ Check the official example in `./src`.
 
 ## :fire: News :fire:
 
+- ??/??/2026 - 4.0.0 - @ks89/ngx-codemirror6 - [HERE](https://github.com/Ks89/ngx-codemirror6/releases)
 - 26/12/2025 - 3.0.0 - @ks89/ngx-codemirror6 - [HERE](https://github.com/Ks89/ngx-codemirror6/releases)
 - 30/05/2024 - 2.0.1 - @ks89/ngx-codemirror6 - [HERE](https://github.com/Ks89/ngx-codemirror6/releases)
 - 30/05/2024 - 2.0.0 - @ks89/ngx-codemirror6 - [HERE](https://github.com/Ks89/ngx-codemirror6/releases)
@@ -104,7 +106,7 @@ In this way, [prettier](https://prettier.io/) will run using my configuration an
 
 The MIT License (MIT)
 
-Copyright (c) 2023-2024 Stefano Cappa
+Copyright (c) 2023-2026 Stefano Cappa
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

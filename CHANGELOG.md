@@ -1,3 +1,6 @@
+# 4.0.0
+- upgrade library to angular 22.0.0 **(BREAKING CHANGES)**
+
 # 3.0.0
 - upgrade library to angular 21.0.0 **(BREAKING CHANGES)**
 
