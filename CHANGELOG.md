@@ -1,5 +1,9 @@
 # 4.0.0
+- support all codemirror languages passing language via API **(BREAKING CHANGES)**
+- support themes **(BREAKING CHANGES)**
+- support editable mode **(BREAKING CHANGES)**
 - upgrade library to angular 22.0.0 **(BREAKING CHANGES)**
+- implement tests
 
 # 3.0.0
 - upgrade library to angular 21.0.0 **(BREAKING CHANGES)**

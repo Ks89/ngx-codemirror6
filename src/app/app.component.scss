@@ -1,8 +1,37 @@
-p {
-  margin: 0;
+h1 {
+  margin: 0 0 16px;
+}
+
+.examples {
+  display: grid;
+  gap: 20px;
+}
+
+.example {
+  h2 {
+    font-size: 18px;
+    margin: 0 0 8px;
+  }
+}
+
+.code-rows {
+  display: grid;
+  gap: 12px;
+}
+
+.code-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+  max-width: 1120px;
 }
 
 .code {
-  margin-left: 10px;
-  max-width: 600px;
+  min-width: 0;
+
+  h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
 }

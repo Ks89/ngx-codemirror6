@@ -22,83 +22,149 @@
  * SOFTWARE.
  */
 
-import { Component, ElementRef, Input, ViewChild, forwardRef, AfterViewInit } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { EditorView, lineNumbers } from '@codemirror/view';
 import { EditorState, EditorStateConfig, Extension } from '@codemirror/state';
-import { LanguageSupport } from '@codemirror/language';
-import { html } from '@codemirror/lang-html';
-import { css } from '@codemirror/lang-css';
-import { javascript } from '@codemirror/lang-javascript';
-import { sass } from '@codemirror/lang-sass';
 import { basicSetup } from 'codemirror';
 
 /**
  * CodeMirror component
  */
 @Component({
-    selector: 'ks-codemirror',
-    providers: [
-        {
-            provide: NG_VALUE_ACCESSOR,
-            useExisting: forwardRef(() => CodemirrorComponent),
-            multi: true
-        }
-    ],
-    template: `<div #host></div>`,
-    standalone: false
+  selector: 'ks-codemirror',
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => CodemirrorComponent),
+      multi: true
+    }
+  ],
+  template: `<div #host></div>`,
+  standalone: false
 })
-export class CodemirrorComponent implements AfterViewInit {
+export class CodemirrorComponent implements AfterViewInit, ControlValueAccessor, OnChanges, OnDestroy {
   @Input() content: string = '';
   @Input() appendExtensions: Extension[] = [];
-  @Input() language: string = '';
+  @Input() language: Extension = [];
+  @Input() readOnly: boolean = true;
 
-  @ViewChild('host') host: ElementRef | undefined;
+  @ViewChild('host') host: ElementRef<HTMLElement> | undefined;
+
+  private editorView: EditorView | undefined;
+  private disabled: boolean = false;
+  private updatingContentFromModel: boolean = false;
+  private onChange: (value: string) => void = () => undefined;
+  private onTouched: () => void = () => undefined;
 
   ngAfterViewInit(): void {
-    let lang: LanguageSupport;
-    switch (this.language) {
-      case 'html':
-        lang = html();
-        break;
-      case 'javascript':
-        lang = javascript({ typescript: false, jsx: false });
-        break;
-      case 'typescript':
-        lang = javascript({ typescript: true, jsx: false });
-        break;
-      case 'jsx':
-        lang = javascript({ typescript: false, jsx: true });
-        break;
-      case 'css':
-        lang = css();
-        break;
-      case 'scss':
-        lang = sass();
-        break;
-      case 'sass':
-        lang = sass({ indented: true });
-        break;
-      default:
-        throw new Error('Internal ngx-codemirror6 error - unrecognized language');
+    this.createEditor(this.content);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (!this.editorView) {
+      return;
     }
 
-    const extensions: Extension[] = [lineNumbers(), lang, basicSetup, EditorState.readOnly.of(true), ...this.appendExtensions];
-    const config: EditorStateConfig = {
-      doc: this.content,
-      extensions: extensions
-    };
-    this.codemirrorInit(config);
+    if (changes['content'] && Object.keys(changes).length === 1) {
+      this.setEditorContent(this.content);
+      return;
+    }
+
+    if (changes['content'] || changes['appendExtensions'] || changes['language'] || changes['readOnly']) {
+      this.createEditor(this.content);
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.destroyEditor();
+  }
+
+  writeValue(value: string | null | undefined): void {
+    this.content = value ?? '';
+    this.setEditorContent(this.content);
+  }
+
+  registerOnChange(fn: (value: string) => void): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+    if (this.editorView) {
+      this.createEditor(this.editorView.state.doc.toString());
+    }
   }
 
   codemirrorInit(config: EditorStateConfig): void {
     if (!this.host) {
       throw new Error('Internal ngx-codemirror6 error - host must be defined');
     }
-    new EditorView({
+    this.destroyEditor();
+    this.editorView = new EditorView({
       parent: this.host.nativeElement,
       state: EditorState.create(config)
     });
+  }
+
+  private createEditor(doc: string): void {
+    const extensions: Extension[] = [
+      lineNumbers(),
+      this.language,
+      basicSetup,
+      EditorState.readOnly.of(this.readOnly || this.disabled),
+      EditorView.editable.of(!this.readOnly && !this.disabled),
+      EditorView.domEventHandlers({
+        blur: () => {
+          this.onTouched();
+        }
+      }),
+      EditorView.updateListener.of((update) => {
+        if (update.docChanged && !this.updatingContentFromModel) {
+          this.content = update.state.doc.toString();
+          this.onChange(this.content);
+        }
+      }),
+      ...this.appendExtensions
+    ];
+    const config: EditorStateConfig = {
+      doc,
+      extensions
+    };
+    this.codemirrorInit(config);
+  }
+
+  private setEditorContent(value: string): void {
+    if (!this.editorView) {
+      return;
+    }
+
+    const currentValue = this.editorView.state.doc.toString();
+    if (currentValue === value) {
+      return;
+    }
+
+    this.updatingContentFromModel = true;
+    try {
+      this.editorView.dispatch({
+        changes: {
+          from: 0,
+          to: this.editorView.state.doc.length,
+          insert: value
+        }
+      });
+    } finally {
+      this.updatingContentFromModel = false;
+    }
+  }
+
+  private destroyEditor(): void {
+    this.editorView?.destroy();
+    this.editorView = undefined;
   }
 }

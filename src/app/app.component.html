@@ -1,37 +1,40 @@
 <h1>ngx-codemirror6 example</h1>
-<p>HTML example</p>
-<div class="code">
-  <ks-codemirror [content]="contentHtml" [language]="'html'">
-  </ks-codemirror>
-</div>
-<p>JS example</p>
-<div class="code">
-  <ks-codemirror [content]="contentJs" [language]="'javascript'">
-  </ks-codemirror>
-</div>
-<p>TS example</p>
-<div class="code">
-  <ks-codemirror [content]="contentTs" [language]="'typescript'">
-  </ks-codemirror>
-</div>
-<p>JSX example</p>
-<div class="code">
-  <ks-codemirror [content]="contentJsx" [language]="'jsx'">
-  </ks-codemirror>
-</div>
-<p>CSS example</p>
-<div class="code">
-  <ks-codemirror [content]="contentCss" [language]="'css'">
-  </ks-codemirror>
-</div>
-<p>SCSS example</p>
-<div class="code">
-  <ks-codemirror [content]="contentScss" [language]="'scss'">
-  </ks-codemirror>
-</div>
-<p>SASS example</p>
-<div class="code">
-  <ks-codemirror [content]="contentSass" [language]="'sass'">
-  </ks-codemirror>
-</div>
-<br />
+<section class="examples">
+  <article class="example" *ngFor="let example of examples; trackBy: trackExample">
+    <h2>{{ example.title }} example</h2>
+    <div class="code-rows">
+      <div class="code-grid">
+        <div class="code">
+          <h3>Light read-only</h3>
+          <ks-codemirror [content]="example.content" [language]="example.language" [readOnly]="true">
+          </ks-codemirror>
+        </div>
+        <div class="code">
+          <h3>Dark read-only</h3>
+          <ks-codemirror
+            [content]="example.content"
+            [language]="example.language"
+            [readOnly]="true"
+            [appendExtensions]="darkExtensions">
+          </ks-codemirror>
+        </div>
+      </div>
+      <div class="code-grid">
+        <div class="code">
+          <h3>Light editable</h3>
+          <ks-codemirror [content]="example.content" [language]="example.language" [readOnly]="false">
+          </ks-codemirror>
+        </div>
+        <div class="code">
+          <h3>Dark editable</h3>
+          <ks-codemirror
+            [content]="example.content"
+            [language]="example.language"
+            [readOnly]="false"
+            [appendExtensions]="darkExtensions">
+          </ks-codemirror>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

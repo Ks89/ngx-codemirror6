@@ -26,9 +26,10 @@ alt="NPMLicense"></a>
 2. **[Installation](#package-installation-package)**
 3. **[Choose the version](#warning-choose-the-version-warning)**
 4. **[Usage](#usage)**
-5. **[News](#fire-news-fire)**
-6. **[Contributing](#computer-contributing-computer)**
-7. **[License](#copyright-license-copyright)**
+5. **[Security notes](#security-notes)**
+6. **[News](#fire-news-fire)**
+7. **[Contributing](#computer-contributing-computer)**
+8. **[License](#copyright-license-copyright)**
 
 <br />
 
@@ -53,11 +54,13 @@ width="200">
 Also, you need Codemirror packages as peer dependencies
 ```
 npm i --save codemirror
-npm i --save @codemirror/lang-html
-npm i --save @codemirror/lang-javascript
-npm i --save @codemirror/lang-sass
 npm i --save @codemirror/state
 npm i --save @codemirror/view
+```
+
+Install only the language packages you need in your application, for example:
+```
+npm i --save @codemirror/lang-javascript
 ```
 
 <br />
@@ -79,6 +82,31 @@ npm i --save @codemirror/view
 ## Usage
 
 Check the official example in `./src`.
+
+Pass a CodeMirror language support extension from your application:
+
+```ts
+import { Component } from '@angular/core';
+import { javascript } from '@codemirror/lang-javascript';
+
+@Component({
+  selector: 'app-root',
+  template: `<ks-codemirror [content]="content" [language]="language"></ks-codemirror>`,
+  standalone: false
+})
+export class AppComponent {
+  content = 'const value = 1;';
+  language = javascript({ typescript: true });
+}
+```
+
+<br />
+
+## Security notes
+
+The `language` and `appendExtensions` inputs accept CodeMirror extensions and pass them directly to the editor configuration.
+Only provide extensions from trusted code. CodeMirror extensions can register callbacks, event handlers, plugins,
+and other runtime behavior that executes in the host Angular application.
 
 <br />
 
