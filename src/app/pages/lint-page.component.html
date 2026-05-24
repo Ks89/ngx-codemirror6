@@ -1,0 +1,74 @@
+<section class="examples">
+    <article class="tab-doc">
+      <div>
+        <h2>@codemirror/lint</h2>
+        <p>
+          Install this optional package to show diagnostics produced by your own linter function. Diagnostics can
+          appear inline and in a lint gutter.
+        </p>
+        <ul class="doc-list">
+          <li><strong>Install</strong>: <code>npm install @codemirror/lint</code>.</li>
+          <li><strong>Inputs</strong> such as <code>[lint]</code>, <code>[linter]</code>, and <code>[lintGutter]</code> enable diagnostics.</li>
+          <li><strong>Outputs</strong> are not emitted for diagnostics; your <code>linter</code> function is called by CodeMirror when linting runs.</li>
+        </ul>
+        <a class="doc-link" href="https://github.com/Ks89/ngx-codemirror6/blob/master/DOCUMENTATION.MD#L693" target="_blank" rel="noopener">
+          Read the lint documentation
+        </a>
+      </div>
+      <div class="doc-snippets">
+        <ks-codemirror
+          [content]="state.lintDocSnippet"
+          [language]="state.htmlSnippetLanguage"
+          [theme]="state.themeExtensions"
+          [readOnly]="true"
+          [lineNumbers]="false">
+        </ks-codemirror>
+        <ks-codemirror
+          [content]="state.lintTypeScriptDocSnippet"
+          [language]="state.typescriptLanguage"
+          [theme]="state.themeExtensions"
+          [readOnly]="true"
+          [lineNumbers]="false">
+        </ks-codemirror>
+      </div>
+    </article>
+    <article class="example">
+      <h2>@codemirror/lint</h2>
+      <div class="code-grid">
+        <div class="code">
+          <h3>Diagnostics and lint gutter</h3>
+          <div class="config-note config-note-stack">
+            <span>Configured with</span>
+            <span>
+              <code>[lint]="true"</code>, <code>[linter]="state.assistLinter"</code>,
+              <code>[lintGutter]="true"</code>, and <code>[lineWrapping]="true"</code>.
+            </span>
+            <span>Try it</span>
+            <span>
+              The demo linter marks <code>var</code> as a warning and <code>console.log</code> as an info diagnostic.
+              Look for diagnostic markers in the editor and in the lint gutter beside the line numbers.
+            </span>
+          </div>
+          <ks-codemirror
+            [content]="state.assistExampleContent"
+            [language]="state.typescriptLanguage"
+            [theme]="state.themeExtensions"
+            [readOnly]="false"
+            [lineWrapping]="true"
+            [lineNumbers]="true"
+            [lint]="true"
+            [linter]="state.assistLinter"
+            [lintGutter]="true">
+          </ks-codemirror>
+        </div>
+        <aside class="assist-panel">
+          <h3>Diagnostic source</h3>
+          <ul>
+            <li><code>state.assistLinter</code> scans the current document text.</li>
+            <li>It returns CodeMirror diagnostics with <code>from</code>, <code>to</code>, <code>severity</code>, and <code>message</code>.</li>
+            <li>The wrapper passes that function to CodeMirror through <code>[linter]</code>.</li>
+          </ul>
+        </aside>
+      </div>
+    </article>
+  </section>

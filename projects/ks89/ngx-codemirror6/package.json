@@ -15,9 +15,15 @@
   "peerDependencies": {
     "@angular/common": ">=22.0.0",
     "@angular/core": ">=22.0.0",
+    "@codemirror/language": ">=6.12.3",
     "@codemirror/state": ">=6.4.1",
-    "@codemirror/view": ">=6.26.3",
-    "codemirror": ">=6.0.1"
+    "@codemirror/view": ">=6.26.3"
+  },
+  "optionalDependencies": {
+    "@codemirror/autocomplete": ">=6.20.2",
+    "@codemirror/commands": ">=6.10.3",
+    "@codemirror/lint": ">=6.9.6",
+    "@codemirror/search": ">=6.7.0"
   },
   "keywords": [
     "ngx-codemirror",

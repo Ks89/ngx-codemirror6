@@ -5,9 +5,9 @@ ISSUES MISSING IMPORTANT INFORMATION MAY BE CLOSED WITHOUT INVESTIGATION.
 -->
 
 <!--
-Please, before to submit this issue, try to remove both your `node_modules` folder and `package-lock.json` file.
+Please, before submit this issue, try to remove both your `node_modules` folder and `package-lock.json` file.
 Finally, run `npm install`.
-If your problem is still present, fell free to open an issue with this template.
+If your problem is still present, feel free to open an issue with this template.
 -->
 
 ## I'm submitting a...
@@ -40,9 +40,10 @@ For bug reports please provide the *STEPS TO REPRODUCE* and a *MINIMAL LIVE DEMO
 ## Environment (the most important section to fill very carefully)
 
 <pre><code>
-- @ks89/ngx-codemirror6 version: X.X.X
-- Node version: X.X.X  <!-- run `node --version` -->
-- npm version: X.X.X  <!-- run `npm --version` -->
+- @ks89/ngx-codemirror6 version: X.Y.Z
+- codemirror6 version: 6.X.Y
+- Node version: X.Y.Z  <!-- run `node --version` -->
+- npm version: X.Y.Z  <!-- run `npm --version` -->
 - Operating System and version:  <!-- Mac, Linux, Windows -->
 - Angular version: X.Y.Z <!-- check your package.json -->
 - angular-cli version: X.Y.Z <!-- for angular-cli run `ng version` otherwise check your package.json-->

@@ -1,0 +1,82 @@
+<section class="examples">
+    <article class="tab-doc">
+      <div>
+        <h2>Folding</h2>
+        <p>
+          Folding hides ranges such as function bodies when the active language can describe foldable syntax.
+          Enable the fold state and optionally show a fold gutter next to the line numbers.
+        </p>
+        <ul class="doc-list">
+          <li><strong>Inputs</strong> such as <code>[codeFolding]</code> and <code>[foldGutter]</code> enable folding extensions.</li>
+          <li><strong>Config inputs</strong> such as <code>[codeFoldingConfig]</code> and <code>[foldGutterConfig]</code> customize the folded placeholder and the gutter markers.</li>
+          <li><strong>Outputs</strong> are NOT emitted for folding state; read it with methods such as <code>getFoldedRanges()</code>.</li>
+          <li><strong>Template reference</strong>: <code>#editor</code> exposes public methods such as <code>foldAll()</code>, <code>unfoldAll()</code>, and <code>toggleFold()</code> to button handlers.</li>
+        </ul>
+        <a class="doc-link" href="https://github.com/Ks89/ngx-codemirror6/blob/master/DOCUMENTATION.MD#L473" target="_blank" rel="noopener">
+          Read the folding documentation
+        </a>
+      </div>
+      <div class="doc-snippets">
+        <ks-codemirror
+          [content]="state.foldingDocSnippet"
+          [language]="state.htmlSnippetLanguage"
+          [theme]="state.themeExtensions"
+          [readOnly]="true"
+          [lineNumbers]="false">
+        </ks-codemirror>
+        <ks-codemirror
+          [content]="state.foldingTypeScriptDocSnippet"
+          [language]="state.typescriptLanguage"
+          [theme]="state.themeExtensions"
+          [readOnly]="true"
+          [lineNumbers]="false">
+        </ks-codemirror>
+      </div>
+    </article>
+    <article class="example">
+      <h2>Code folding</h2>
+      <div class="advanced-layout">
+        <div class="code">
+          <h3>Folding state and fold gutter</h3>
+          <div class="config-note config-note-stack">
+            <span>Configured with</span>
+            <span>
+              <code>[codeFolding]="true"</code>, <code>[codeFoldingConfig]</code>, <code>[foldGutter]="true"</code>,
+              <code>[foldGutterConfig]</code>, and <code>#editor</code> for method buttons.
+            </span>
+            <span>Try it</span>
+            <span>
+              Click the gutter marker near the function, or use <code>foldAll</code>, <code>unfoldAll</code>, and
+              <code>toggleFold</code>. The folded range counter reads the current state with
+              <code>getFoldedRanges()</code>.
+            </span>
+          </div>
+          <ks-codemirror
+            #editor
+            [content]="state.advancedExampleContent"
+            [language]="state.typescriptLanguage"
+            [theme]="state.themeExtensions"
+            [readOnly]="false"
+            [lineNumbers]="true"
+            [codeFolding]="true"
+            [codeFoldingConfig]="state.advancedCodeFoldingConfig"
+            [foldGutter]="true"
+            [foldGutterConfig]="state.advancedFoldGutterConfig">
+          </ks-codemirror>
+        </div>
+        <aside class="event-panel">
+          <div class="method-actions" aria-label="Folding method examples">
+            <button type="button" (click)="state.runAdvancedFolding(editor)">foldAll</button>
+            <button type="button" (click)="editor.unfoldAll()">unfoldAll</button>
+            <button type="button" (click)="editor.toggleFold()">toggleFold</button>
+          </div>
+          <dl class="event-stats">
+            <div>
+              <dt>Folded ranges</dt>
+              <dd>{{ editor.getFoldedRanges().length }}</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </article>
+  </section>

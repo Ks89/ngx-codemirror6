@@ -1,0 +1,75 @@
+<section class="examples">
+    <article class="tab-doc">
+      <div>
+        <h2>Gutters and decorations</h2>
+        <p>
+          Gutters are columns beside the code, commonly used for line numbers, breakpoints, and folding controls.
+          Decorations style document ranges without changing the text.
+        </p>
+        <ul class="doc-list">
+          <li><strong>Inputs</strong> such as <code>[breakpointGutter]</code>, <code>[breakpoints]</code>, and <code>[markedRanges]</code> configure side columns and highlights.</li>
+          <li><strong>Outputs</strong> include <code>(breakpointsChange)</code>, emitted when the wrapper breakpoint gutter changes.</li>
+        </ul>
+        <a class="doc-link" href="https://github.com/Ks89/ngx-codemirror6/blob/master/DOCUMENTATION.MD#L496" target="_blank" rel="noopener">
+          Read the gutters and breakpoints documentation
+        </a>
+      </div>
+      <div class="doc-snippets">
+        <ks-codemirror
+          [content]="state.guttersDocSnippet"
+          [language]="state.htmlSnippetLanguage"
+          [theme]="state.themeExtensions"
+          [readOnly]="true"
+          [lineNumbers]="false">
+        </ks-codemirror>
+        <ks-codemirror
+          [content]="state.guttersTypeScriptDocSnippet"
+          [language]="state.typescriptLanguage"
+          [theme]="state.themeExtensions"
+          [readOnly]="true"
+          [lineNumbers]="false">
+        </ks-codemirror>
+      </div>
+    </article>
+    <article class="example">
+      <h2>Gutters and decorations</h2>
+      <div class="advanced-layout">
+        <div class="code">
+          <h3>Breakpoints, custom gutters, marked ranges</h3>
+          <ks-codemirror
+            #gutterEditor
+            [content]="state.advancedExampleContent"
+            [language]="state.typescriptLanguage"
+            [theme]="state.themeExtensions"
+            [readOnly]="false"
+            [lineNumbers]="true"
+            [customGutters]="state.advancedCustomGutters"
+            [guttersFixed]="false"
+            [breakpointGutter]="true"
+            [breakpoints]="state.advancedBreakpoints"
+            [markedRanges]="state.advancedMarkedRanges"
+            [editorAttributes]="state.advancedEditorAttributes"
+            [contentAttributes]="state.advancedContentAttributes"
+            [baseTheme]="state.advancedBaseTheme"
+            (breakpointsChange)="state.onAdvancedBreakpointsChange($event)">
+          </ks-codemirror>
+        </div>
+        <aside class="event-panel">
+          <div class="method-actions" aria-label="Gutter method examples">
+            <button type="button" (click)="gutterEditor.toggleBreakpoint(4)">toggleBreakpoint</button>
+          </div>
+          <dl class="event-stats">
+            <div>
+              <dt>Breakpoints</dt>
+              <dd>{{ state.advancedBreakpoints.join(', ') || 'none' }}</dd>
+            </div>
+          </dl>
+          <ol class="event-log">
+            @for (item of state.advancedApiLog; track state.trackEventLog($index, item)) {
+              <li>{{ item }}</li>
+            }
+          </ol>
+        </aside>
+      </div>
+    </article>
+  </section>

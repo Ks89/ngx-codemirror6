@@ -1,14 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CodemirrorComponent } from './ngx-codemirror6.component';
 
+/** Angular module that declares and exports the ngx-codemirror6 component. */
 @NgModule({
-  declarations: [
-    CodemirrorComponent
-  ],
-  imports: [
-  ],
-  exports: [
-    CodemirrorComponent
-  ]
+  declarations: [CodemirrorComponent],
+  imports: [],
+  exports: [CodemirrorComponent]
 })
-export class CodemirrorModule { }
+export class CodemirrorModule {}

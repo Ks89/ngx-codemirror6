@@ -1,0 +1,24 @@
+<header class="navbar">
+  <h1 class="navbar-title">&#64;ks89/ngx-codemirror6</h1>
+  <nav class="tabs" aria-label="Example categories">
+    @for (tab of state.tabs; track tab.id) {
+      <a
+        class="tab"
+        [routerLink]="['/', tab.id]"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">
+        {{ tab.label }}
+      </a>
+    }
+  </nav>
+  <button
+    type="button"
+    class="theme-toggle"
+    [class.dark-active]="state.darkTheme"
+    [attr.aria-pressed]="state.darkTheme"
+    [attr.aria-label]="state.darkTheme ? 'Switch to light theme' : 'Switch to dark theme'"
+    [title]="state.darkTheme ? 'Switch to light theme' : 'Switch to dark theme'"
+    (click)="state.darkTheme = !state.darkTheme">
+    <span class="theme-toggle-icon" aria-hidden="true"></span>
+  </button>
+</header>

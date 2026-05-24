@@ -1,0 +1,110 @@
+<section class="examples">
+    <article class="tab-doc">
+      <div>
+        <h2>@codemirror/autocomplete</h2>
+        <p>
+          Install this optional package when you need completion popups, custom completion sources, or automatic
+          bracket closing. The wrapper loads it only when these APIs are used.
+        </p>
+        <ul class="doc-list">
+          <li><strong>Install</strong>: <code>npm install @codemirror/autocomplete</code>.</li>
+          <li><strong>Inputs</strong> such as <code>[autocompletion]</code>, <code>[completions]</code>, and <code>[closeBrackets]</code> require this optional package.</li>
+          <li><strong>Language autocomplete</strong> uses completion data provided by the active CodeMirror language, for example TypeScript keywords and syntax-aware suggestions.</li>
+          <li><strong>Custom completion source</strong> adds app-specific suggestions, such as domain objects, API names, snippets, or values returned by your backend, alongside language completions.</li>
+          <li><strong>Outputs</strong> are not emitted by completion itself; inspect state with methods such as <code>closeCompletion()</code>, <code>acceptCompletion()</code>, <code>startCompletion()</code>.</li>
+        </ul>
+        <a class="doc-link" href="https://github.com/Ks89/ngx-codemirror6/blob/master/DOCUMENTATION.MD#L599" target="_blank" rel="noopener">
+          Read the autocomplete documentation
+        </a>
+      </div>
+      <div class="doc-snippets">
+        <ks-codemirror
+          [content]="state.autocompleteDocSnippet"
+          [language]="state.htmlSnippetLanguage"
+          [theme]="state.themeExtensions"
+          [readOnly]="true"
+          [lineNumbers]="false">
+        </ks-codemirror>
+        <ks-codemirror
+          [content]="state.autocompleteTypeScriptDocSnippet"
+          [language]="state.typescriptLanguage"
+          [theme]="state.themeExtensions"
+          [readOnly]="true"
+          [lineNumbers]="false">
+        </ks-codemirror>
+      </div>
+    </article>
+    <article class="example">
+      <h2>@codemirror/autocomplete</h2>
+      <div class="assist-layout">
+        <div class="code">
+          <h3>Language autocomplete</h3>
+          <div class="config-note config-note-stack">
+            <span>Configured with</span>
+            <span>
+              <code>[autocompletion]="true"</code>,
+              <code>[autocompletionConfig]</code>, <code>[closeBrackets]="true"</code>, and
+              <code>#editor</code> for method buttons.
+            </span>
+            <span>Try it</span>
+            <span>
+              Click <code>startCompletion</code> or type near TypeScript code to open the completion popup. Type an
+              opening bracket, quote, or parenthesis to see <code>[closeBrackets]</code> insert the matching character.
+            </span>
+          </div>
+          <ks-codemirror
+            #editor
+            [content]="state.assistExampleContent"
+            [language]="state.typescriptLanguage"
+            [theme]="state.themeExtensions"
+            [readOnly]="false"
+            [lineWrapping]="true"
+            [lineNumbers]="true"
+            [closeBrackets]="true"
+            [autocompletion]="true"
+            [autocompletionConfig]="state.advancedAutocompletionConfig">
+          </ks-codemirror>
+        </div>
+        <div class="code">
+          <h3>Custom completion source</h3>
+          <div class="config-note config-note-stack">
+            <span>Configured with</span>
+            <span>
+              <code>[autocompletion]="true"</code> and <code>[completions]="assistCompletions"</code>. The
+              completion source returns the demo options <code>currentUser</code>, <code>saveUser</code>, and
+              <code>console.log</code>.
+            </span>
+            <span>Try it</span>
+            <span>
+              Start typing <code>save</code>, <code>current</code>, or <code>console</code>. Those suggestions come
+              from the Angular field passed to <code>[completions]</code> and are added beside language completions.
+            </span>
+          </div>
+          <ks-codemirror
+            [content]="state.assistExampleContent"
+            [language]="state.typescriptLanguage"
+            [theme]="state.themeExtensions"
+            [readOnly]="false"
+            [lineWrapping]="true"
+            [lineNumbers]="true"
+            [autocompletion]="true"
+            [completions]="state.assistCompletions">
+          </ks-codemirror>
+        </div>
+        <aside class="assist-panel">
+          <h3>Methods</h3>
+          <div class="method-actions">
+            <button type="button" (click)="state.runAdvancedCompletion(editor)">startCompletion</button>
+            <button type="button" (click)="editor.closeCompletion()">closeCompletion</button>
+            <button type="button" (click)="editor.acceptCompletion()">acceptCompletion</button>
+          </div>
+          <dl class="event-stats">
+            <div>
+              <dt>Status</dt>
+              <dd>{{ editor.completionStatus() || 'closed' }}</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </article>
+  </section>

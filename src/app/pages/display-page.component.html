@@ -1,0 +1,111 @@
+<section class="examples">
+    <article class="tab-doc">
+      <div>
+        <h2>Display and editing</h2>
+        <p>
+          Use these inputs when the editor is already working and you want to tune how it feels inside your UI.
+          Display inputs affect what the user sees. Editing inputs affect how text is entered, indented, and selected.
+        </p>
+        <ul class="doc-list">
+          <li><strong>Display inputs</strong> control visible editor chrome: <code>[lineNumbers]</code> adds the left line-number gutter, <code>[lineWrapping]</code> wraps long lines inside the editor, and <code>[highlightActiveLine]</code> marks the line where the cursor is.</li>
+          <li><strong>Whitespace inputs</strong> make invisible characters visible: <code>[highlightWhitespace]</code> marks spaces and tabs, while <code>[highlightTrailingWhitespace]</code> marks extra spaces at the end of a line.</li>
+          <li><strong>Editing inputs</strong> control concrete typing behavior: <code>[tabSize]</code> changes tab width, <code>[indentUnit]</code> defines one indentation step, and <code>[multipleSelections]</code> allows more than one cursor or selected range.</li>
+        </ul>
+        <a class="doc-link" href="https://github.com/Ks89/ngx-codemirror6/blob/master/DOCUMENTATION.MD#L336" target="_blank" rel="noopener">
+          Read the display and editing documentation
+        </a>
+      </div>
+      <ks-codemirror
+        [content]="state.displayDocSnippet"
+        [language]="state.htmlSnippetLanguage"
+        [theme]="state.themeExtensions"
+        [readOnly]="true"
+        [lineNumbers]="false">
+      </ks-codemirror>
+    </article>
+    <article class="example">
+      <h2>Display and editing inputs</h2>
+      <div class="code-grid">
+        <div class="code">
+          <h3>Long lines in narrow layouts</h3>
+          <div class="config-note config-note-stack">
+            <span>Configured with</span>
+            <span>
+              <code>[lineWrapping]="true"</code>, <code>[lineNumbers]="true"</code>,
+              <code>[highlightActiveLine]="true"</code>, <code>[scrollPastEnd]="true"</code>, and a
+              <code>[placeholder]</code>.
+            </span>
+            <span>Try it</span>
+            <span>
+              Resize the page or place the cursor on the long string. The line wraps inside the editor instead of
+              forcing horizontal scrolling, and the active line is highlighted while you edit.
+            </span>
+          </div>
+          <ks-codemirror
+            [content]="state.displayLongLineContent"
+            [language]="state.typescriptLanguage"
+            [theme]="state.themeExtensions"
+            [readOnly]="false"
+            [lineWrapping]="true"
+            [placeholder]="'Start typing TypeScript code...'"
+            [lineNumbers]="true"
+            [highlightActiveLine]="true"
+            [scrollPastEnd]="true">
+          </ks-codemirror>
+        </div>
+        <div class="code">
+          <h3>Whitespace review</h3>
+          <div class="config-note config-note-stack">
+            <span>Configured with</span>
+            <span>
+              <code>[highlightWhitespace]="true"</code>, <code>[highlightTrailingWhitespace]="true"</code>, and
+              <code>[lineNumbers]="true"</code>.
+            </span>
+            <span>Try it</span>
+            <span>
+              Look at the spaces inside the function body and after <code>const name = 'Angular';</code>. CodeMirror
+              marks whitespace so formatting mistakes are visible before users save or copy code.
+            </span>
+          </div>
+          <ks-codemirror
+            [content]="state.displayWhitespaceContent"
+            [language]="state.typescriptLanguage"
+            [theme]="state.themeExtensions"
+            [readOnly]="false"
+            [lineNumbers]="true"
+            [highlightWhitespace]="true"
+            [highlightTrailingWhitespace]="true">
+          </ks-codemirror>
+        </div>
+        <div class="code">
+          <h3>Indentation and selections</h3>
+          <div class="config-note config-note-stack">
+            <span>Configured with</span>
+            <span>
+              <code>[tabSize]="2"</code>, <code>[indentUnit]="'  '"</code>, <code>[indentOnInput]="true"</code>,
+              <code>[multipleSelections]="true"</code>, and <code>[drawSelection]="true"</code>.
+            </span>
+            <span>Try it</span>
+            <span>
+              Put the cursor inside the object, press Enter, and CodeMirror indents the new line with two spaces.
+              Type a closing <code>&#125;</code> on an indented line to see <code>[indentOnInput]</code> align it.
+              Multiple selections are enabled and drawn by CodeMirror; use the Commands tab for buttons that create
+              extra cursors programmatically.
+            </span>
+          </div>
+          <ks-codemirror
+            [content]="state.displayIndentationContent"
+            [language]="state.typescriptLanguage"
+            [theme]="state.themeExtensions"
+            [readOnly]="false"
+            [editable]="null"
+            [tabSize]="2"
+            [indentUnit]="'  '"
+            [indentOnInput]="true"
+            [multipleSelections]="true"
+            [drawSelection]="true">
+          </ks-codemirror>
+        </div>
+      </div>
+    </article>
+  </section>

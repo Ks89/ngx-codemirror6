@@ -1,0 +1,90 @@
+<section class="examples">
+    <article class="tab-doc">
+      <div>
+        <h2>@codemirror/commands</h2>
+        <p>
+          Install this optional package for editing commands such as undo, redo, indentation, line movement,
+          comment toggles, and multiple cursor helpers.
+        </p>
+        <ul class="doc-list">
+          <li><strong>Install</strong>: <code>npm install @codemirror/commands</code>.</li>
+          <li><strong>Inputs</strong> such as <code>[indentWithTab]</code> and <code>[keymaps]</code> register command behavior.</li>
+          <li><strong>Outputs</strong> are indirect: commands that edit the document can trigger <code>(contentChange)</code> and <code>(update)</code>.</li>
+          <li><strong>Template reference</strong>: <code>#editor</code> exposes the Angular wrapper instance inside the template to call methods like for instance <code>addCursorAbove()</code>,
+            <code>addCursorBelow()</code>, <code>selectLine()</code>, <code>indentMore()</code>, <code>toggleLineComment()</code>.
+          </li>
+        </ul>
+        <a class="doc-link" href="https://github.com/Ks89/ngx-codemirror6/blob/master/DOCUMENTATION.MD#L659" target="_blank" rel="noopener">
+          Read the commands documentation
+        </a>
+      </div>
+      <div class="doc-snippets">
+        <ks-codemirror
+          [content]="state.commandsDocSnippet"
+          [language]="state.htmlSnippetLanguage"
+          [theme]="state.themeExtensions"
+          [readOnly]="true"
+          [lineNumbers]="false">
+        </ks-codemirror>
+        <ks-codemirror
+          [content]="state.commandsTypeScriptDocSnippet"
+          [language]="state.typescriptLanguage"
+          [theme]="state.themeExtensions"
+          [readOnly]="true"
+          [lineNumbers]="false">
+        </ks-codemirror>
+      </div>
+    </article>
+    <article class="example">
+      <h2>@codemirror/commands</h2>
+      <div class="event-layout">
+        <div class="code">
+          <h3>Command methods and keymaps</h3>
+          <div class="config-note config-note-stack">
+            <span>Configured with</span>
+            <span>
+              <code>[indentWithTab]="true"</code>, <code>[keymaps]="state.assistKeymaps"</code>,
+              <code>[appendExtensions]="state.commandHistoryExtensions"</code>,
+              <code>[multipleSelections]="true"</code>, <code>[drawSelection]="true"</code>, and
+              <code>#editor</code> for command buttons.
+            </span>
+            <span>Try it</span>
+            <span>
+              Click <code>addCursorAbove</code> or <code>addCursorBelow</code> to create extra cursors. Use
+              <code>comment and indent</code> to run command methods from Angular code, then use <code>undo</code>
+              and <code>redo</code> to verify command history. Press Tab in the editor to test the
+              <code>[indentWithTab]</code> key binding.
+            </span>
+          </div>
+          <ks-codemirror
+            #editor
+            [content]="state.eventExampleContent"
+            [language]="state.typescriptLanguage"
+            [theme]="state.themeExtensions"
+            [readOnly]="false"
+            [lineWrapping]="true"
+            [lineNumbers]="true"
+            [appendExtensions]="state.commandHistoryExtensions"
+            [indentWithTab]="true"
+            [keymaps]="state.assistKeymaps"
+            [multipleSelections]="true"
+            [drawSelection]="true">
+          </ks-codemirror>
+        </div>
+        <aside class="event-panel">
+          <div class="method-actions" aria-label="Command method examples">
+            <button type="button" (click)="editor.addCursorAbove()">addCursorAbove</button>
+            <button type="button" (click)="editor.addCursorBelow()">addCursorBelow</button>
+            <button type="button" (click)="state.runAdvancedCommands(editor)">comment and indent</button>
+            <button type="button" (click)="state.undoMethodExample(editor)">undo</button>
+            <button type="button" (click)="state.redoMethodExample(editor)">redo</button>
+          </div>
+          <ol class="event-log">
+            @for (item of state.advancedApiLog; track state.trackEventLog($index, item)) {
+              <li>{{ item }}</li>
+            }
+          </ol>
+        </aside>
+      </div>
+    </article>
+  </section>

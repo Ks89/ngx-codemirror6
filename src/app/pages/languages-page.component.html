@@ -1,0 +1,58 @@
+<section class="examples">
+    <article class="tab-doc">
+      <div>
+        <h2>Language support</h2>
+        <p>
+          CodeMirror languages are installed separately and passed to the wrapper through the
+          <code>[language]</code> input. The first examples show the same content in read-only and editable mode.
+        </p>
+        <ul class="doc-list">
+          <li><strong>Inputs</strong> are Angular property bindings, such as <code>[content]</code>, <code>[language]</code>, and <code>[readOnly]</code>.</li>
+          <li><code>[content]</code> is the editor document text. It accepts a <code>string</code>; use <code>''</code> for an empty editor. In the example <code>code</code> is a <code>string</code> variable.</li>
+          <li><code>[readOnly]</code> controls whether CodeMirror should allow document changes. It accepts <code>true</code> or <code>false</code>.</li>
+          <li><code>[readOnly]="true"</code> shows code without editing. <code>[readOnly]="false"</code> lets the user type and emit <code>(contentChange)</code>.</li>
+        </ul>
+        <a class="doc-link" href="https://github.com/Ks89/ngx-codemirror6/blob/master/DOCUMENTATION.MD#L310" target="_blank" rel="noopener">
+          Read the language documentation
+        </a>
+      </div>
+      <ks-codemirror
+        [content]="state.languagesDocSnippet"
+        [language]="state.htmlSnippetLanguage"
+        [theme]="state.themeExtensions"
+        [readOnly]="true"
+        [lineNumbers]="false">
+      </ks-codemirror>
+    </article>
+    @for (example of state.examples; track state.trackExample($index, example)) {
+      <article class="example">
+        <div class="example-heading">
+          <h2>{{ example.title }} example</h2>
+          <code>{{ example.installCommand }}</code>
+        </div>
+        <div class="code-grid">
+          <div class="code">
+            <h3>Read-only</h3>
+            <ks-codemirror
+              [content]="example.content"
+              [language]="example.language"
+              [readOnly]="true"
+              [lineNumbers]="true"
+              [theme]="state.themeExtensions">
+            </ks-codemirror>
+          </div>
+          <div class="code">
+            <h3>Editable</h3>
+            <ks-codemirror
+              [content]="example.content"
+              [language]="example.language"
+              [readOnly]="false"
+              [lineNumbers]="true"
+              [highlightActiveLine]="true"
+              [theme]="state.themeExtensions">
+            </ks-codemirror>
+          </div>
+        </div>
+      </article>
+    }
+  </section>

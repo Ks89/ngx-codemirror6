@@ -4,7 +4,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "@ks89/ngx-codemirror6": ["./dist/ks89/ngx-codemirror6"]
+      "@ks89/ngx-codemirror6": ["./projects/ks89/ngx-codemirror6/src/public-api.ts"]
     },
     "strict": true,
     "noImplicitOverride": true,

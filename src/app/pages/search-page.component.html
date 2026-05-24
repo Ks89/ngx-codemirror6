@@ -1,0 +1,92 @@
+<section class="examples">
+    <article class="tab-doc">
+      <div>
+        <h2>@codemirror/search</h2>
+        <p>
+          Install this optional package for the search panel, search keymap, selection-match highlighting, and
+          commands such as find next or select all matches.
+        </p>
+        <ul class="doc-list">
+          <li><strong>Install</strong>: <code>npm install @codemirror/search</code>.</li>
+          <li><strong>Inputs</strong> such as <code>[search]</code>, <code>[searchConfig]</code>, and <code>[searchKeymap]</code> install search behavior.</li>
+          <li><strong>Outputs</strong> are not emitted by the search panel.</li>
+          <li><strong>Template reference</strong>: <code>#editor</code> gives the button handlers access to the wrapper component instance.</li>
+          <li>This is useful for imperative CodeMirror actions, for example <code>openSearchPanel()</code>, <code>findNext()</code>, or <code>closeSearchPanel()</code>.</li>
+        </ul>
+        <a class="doc-link" href="https://github.com/Ks89/ngx-codemirror6/blob/master/DOCUMENTATION.MD#L742" target="_blank" rel="noopener">
+          Read the search documentation
+        </a>
+      </div>
+      <div class="doc-snippets">
+        <ks-codemirror
+          [content]="state.searchDocSnippet"
+          [language]="state.htmlSnippetLanguage"
+          [theme]="state.themeExtensions"
+          [readOnly]="true"
+          [lineNumbers]="false">
+        </ks-codemirror>
+        <ks-codemirror
+          [content]="state.searchTypeScriptDocSnippet"
+          [language]="state.typescriptLanguage"
+          [theme]="state.themeExtensions"
+          [readOnly]="true"
+          [lineNumbers]="false">
+        </ks-codemirror>
+      </div>
+    </article>
+    <article class="example">
+      <h2>@codemirror/search</h2>
+      <div class="event-layout">
+        <div class="code">
+          <h3>Search panel and selection matches</h3>
+          <div class="config-note config-note-stack">
+            <span>Configured with</span>
+            <span>
+              <code>[search]="true"</code>, <code>[searchConfig]="state.advancedSearchConfig"</code>,
+              <code>[searchKeymap]="true"</code>, <code>[highlightSelectionMatches]="true"</code>, and
+              <code>#editor</code> for method buttons.
+            </span>
+            <span>Try it</span>
+            <span>
+              Click <code>openSearchPanel</code>, search for <code>total</code>, then use <code>findNext</code> and
+              <code>findPrevious</code>. Select a word in the editor to see matching selections highlighted, then use
+              <code>selectSelectionMatches</code> to select all matches.
+            </span>
+          </div>
+          <ks-codemirror
+            #editor
+            [content]="state.advancedExampleContent"
+            [language]="state.typescriptLanguage"
+            [theme]="state.themeExtensions"
+            [readOnly]="false"
+            [lineWrapping]="true"
+            [lineNumbers]="true"
+            [highlightSelectionMatches]="true"
+            [search]="true"
+            [searchConfig]="state.advancedSearchConfig"
+            [searchKeymap]="true">
+          </ks-codemirror>
+        </div>
+        <aside class="event-panel">
+          <div class="method-actions" aria-label="Search method examples">
+            <button type="button" (click)="state.runAdvancedSearch(editor)">openSearchPanel</button>
+            <button type="button" (click)="editor.closeSearchPanel()">closeSearchPanel</button>
+            <button type="button" (click)="editor.findNext()">findNext</button>
+            <button type="button" (click)="editor.findPrevious()">findPrevious</button>
+            <button type="button" (click)="editor.selectSelectionMatches()">selectSelectionMatches</button>
+          </div>
+          <dl class="event-stats">
+            <div>
+              <dt>Panel</dt>
+              <dd>{{ editor.isSearchPanelOpen() ? 'open' : 'closed' }}</dd>
+            </div>
+          </dl>
+          <ol class="event-log">
+            @for (item of state.advancedApiLog; track state.trackEventLog($index, item)) {
+              <li>{{ item }}</li>
+            }
+          </ol>
+        </aside>
+      </div>
+    </article>
+  </section>
