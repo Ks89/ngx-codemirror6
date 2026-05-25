@@ -196,6 +196,8 @@ For a light editor, pass an empty array:
 theme: Extension[] = [];
 ```
 
+The wrapper still installs CodeMirror's default syntax highlighter as a fallback, so language tokens keep readable colors when you use an empty/light theme. Custom theme highlighters passed through `[theme]`, `[baseTheme]`, or `[appendExtensions]` can override that fallback.
+
 ### 3.4 Explicit Feature Inputs
 
 The wrapper does not use automatic feature presets. Enable each editor feature with the input that represents it.
@@ -877,11 +879,15 @@ There is no wrapper preset API. Inputs are direct feature toggles: `true` enable
 
 `[completions]` is additive with language completions. Use `[autocompletionConfig]="{ override: [...] }"` only when your Angular application should fully own the suggestion list.
 
-### 12.3 Stateful Positions
+### 12.3 Default Syntax Highlighting
+
+The wrapper installs CodeMirror's `defaultHighlightStyle` as a fallback. Empty/light themes keep syntax colors, while explicit syntax highlighters from native CodeMirror extensions can override the fallback.
+
+### 12.4 Stateful Positions
 
 `[breakpoints]` and `[markedRanges]` are Angular-friendly inputs, but their document positions are tracked with CodeMirror state internally. Editor transactions map those positions through document changes. Updating the Angular input explicitly replaces the wrapper-managed state with the new input value.
 
-### 12.4 Advanced Native CodeMirror Configuration
+### 12.5 Advanced Native CodeMirror Configuration
 
 Some native CodeMirror options are intentionally simplified as booleans in this wrapper. Related CodeMirror keymaps and common config objects are exposed where the wrapper has a corresponding feature input, such as `[foldKeymap]`, `[lintKeymap]`, `[lintConfig]`, `[searchKeymap]`, and `[autocompletionConfig]`. For deeper configuration, pass native CodeMirror extensions through `[appendExtensions]`.
 

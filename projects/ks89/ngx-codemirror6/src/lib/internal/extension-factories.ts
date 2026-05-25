@@ -1,10 +1,12 @@
 import {
   bracketMatching as codemirrorBracketMatching,
   codeFolding as codemirrorCodeFolding,
+  defaultHighlightStyle,
   foldKeymap,
   foldGutter as codemirrorFoldGutter,
   indentOnInput as codemirrorIndentOnInput,
-  indentUnit
+  indentUnit,
+  syntaxHighlighting
 } from '@codemirror/language';
 import { EditorSelection, EditorState, Extension, StateField } from '@codemirror/state';
 import {
@@ -161,7 +163,7 @@ export function createEditableExtensions(readOnly: boolean, editable: boolean | 
 
 /** Normalizes a single theme extension or a theme extension array. */
 export function createThemeExtensions(theme: Extension | Extension[]): Extension[] {
-  return Array.isArray(theme) ? [...theme] : [theme];
+  return [syntaxHighlighting(defaultHighlightStyle, { fallback: true }), ...(Array.isArray(theme) ? theme : [theme])];
 }
 
 /** Creates display-related extensions such as line wrapping, line numbers, active line, and whitespace markers. */

@@ -81,6 +81,7 @@ import {
   CodemirrorFoldGutterConfig,
   CodemirrorGutterConfig,
   CodemirrorHoverTooltipSource,
+  CodemirrorLintConfig,
   CodemirrorMarkedRange,
   CodemirrorSearchConfig
 } from '@ks89/ngx-codemirror6';
@@ -494,7 +495,8 @@ onSelectionChange(selection: EditorSelection): void {
   [codeFolding]="true"
   [codeFoldingConfig]="codeFoldingConfig"
   [foldGutter]="true"
-  [foldGutterConfig]="foldGutterConfig">
+  [foldGutterConfig]="foldGutterConfig"
+  [foldKeymap]="true">
 </ks-codemirror>
 
 <button type="button" (click)="editor.foldAll()">Fold all</button>
@@ -647,9 +649,15 @@ async formatSelection(editor: CodemirrorComponent): Promise<void> {
   [lineNumbers]="true"
   [lint]="true"
   [linter]="linter"
-  [lintGutter]="true">
+  [lintConfig]="lintConfig"
+  [lintGutter]="true"
+  [lintKeymap]="true">
 </ks-codemirror>`;
-  lintTypeScriptDocSnippet: string = `linter: LintSource = (view) => {
+  lintTypeScriptDocSnippet: string = `lintConfig: CodemirrorLintConfig = {
+  delay: 300
+};
+
+linter: LintSource = (view) => {
   const diagnostics: Diagnostic[] = [];
   const index = view.state.doc.toString().indexOf('var ');
 
@@ -693,6 +701,9 @@ async openSearch(editor: CodemirrorComponent): Promise<void> {
     top: true,
     caseSensitive: false,
     literal: true
+  };
+  advancedLintConfig: CodemirrorLintConfig = {
+    delay: 300
   };
   advancedAutocompletionConfig = {
     activateOnTyping: false,

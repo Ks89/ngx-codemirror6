@@ -40,4 +40,5 @@ When changing the wrapper API, compare behavior with the official CodeMirror doc
 4. Do not reintroduce wrapper presets for feature groups. Demo and documentation examples should show explicit inputs or native CodeMirror extensions through `[appendExtensions]`.
 5. Avoid replacing language features accidentally. Custom autocomplete should stay additive unless users pass CodeMirror's native `override` option.
 6. Match related CodeMirror behavior when exposing features, such as pairing `closeBrackets()` with its keymap and exposing native keymaps like `foldKeymap` and `lintKeymap` when the related feature is wrapped.
-7. For stateful editor features like breakpoints and marked ranges, prefer CodeMirror state fields/effects so positions survive document edits. Do not reintroduce static-offset decoration behavior for document-coupled ranges.
+7. Preserve CodeMirror's fallback syntax highlighting for empty/light themes. Do not make a light editor render language tokens as plain black text unless the user deliberately overrides highlighting.
+8. For stateful editor features like breakpoints and marked ranges, prefer CodeMirror state fields/effects so positions survive document edits. Do not reintroduce static-offset decoration behavior for document-coupled ranges.

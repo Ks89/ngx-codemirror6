@@ -1,19 +1,24 @@
 # 4.0.0
-- support all codemirror languages passing language via API **(BREAKING CHANGES)**
 - support themes **(BREAKING CHANGES)**
+- support all codemirror languages passing language via API **(BREAKING CHANGES)**
 - support editable mode **(BREAKING CHANGES)**
-- upgrade library to angular 22.0.0 **(BREAKING CHANGES)**
+- support events, folding, gutters, tooltips **(BREAKING CHANGES)**
+- support linter, autocompletion, commands, and search **(BREAKING CHANGES)**
 - implement tests
+
 
 # 3.0.0
 - upgrade library to angular 21.0.0 **(BREAKING CHANGES)**
+
 
 # 2.0.1
 - remove material dark theme
 - remove @ddietr/codemirror-themes dependency
 
+
 # 2.0.0
 - upgrade to Angular 18
+
 
 # 1.0.0
 - first release with Codemirror 6 support

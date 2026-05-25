@@ -13,8 +13,8 @@
     "tslib": ">=2.3.0"
   },
   "peerDependencies": {
-    "@angular/common": ">=22.0.0",
-    "@angular/core": ">=22.0.0",
+    "@angular/common": ">=21.0.0",
+    "@angular/core": ">=21.0.0",
     "@codemirror/language": ">=6.12.3",
     "@codemirror/state": ">=6.4.1",
     "@codemirror/view": ">=6.26.3"

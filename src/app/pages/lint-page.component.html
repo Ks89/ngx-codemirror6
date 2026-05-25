@@ -8,7 +8,7 @@
         </p>
         <ul class="doc-list">
           <li><strong>Install</strong>: <code>npm install @codemirror/lint</code>.</li>
-          <li><strong>Inputs</strong> such as <code>[lint]</code>, <code>[linter]</code>, and <code>[lintGutter]</code> enable diagnostics.</li>
+          <li><strong>Inputs</strong> such as <code>[lint]</code>, <code>[linter]</code>, <code>[lintConfig]</code>, <code>[lintGutter]</code>, and <code>[lintKeymap]</code> enable diagnostics.</li>
           <li><strong>Outputs</strong> are not emitted for diagnostics; your <code>linter</code> function is called by CodeMirror when linting runs.</li>
         </ul>
         <a class="doc-link" href="https://github.com/Ks89/ngx-codemirror6/blob/master/DOCUMENTATION.MD#L693" target="_blank" rel="noopener">
@@ -41,7 +41,8 @@
             <span>Configured with</span>
             <span>
               <code>[lint]="true"</code>, <code>[linter]="state.assistLinter"</code>,
-              <code>[lintGutter]="true"</code>, and <code>[lineWrapping]="true"</code>.
+              <code>[lintConfig]="state.advancedLintConfig"</code>, <code>[lintGutter]="true"</code>,
+              <code>[lintKeymap]="true"</code>, and <code>[lineWrapping]="true"</code>.
             </span>
             <span>Try it</span>
             <span>
@@ -58,7 +59,9 @@
             [lineNumbers]="true"
             [lint]="true"
             [linter]="state.assistLinter"
-            [lintGutter]="true">
+            [lintConfig]="state.advancedLintConfig"
+            [lintGutter]="true"
+            [lintKeymap]="true">
           </ks-codemirror>
         </div>
         <aside class="assist-panel">

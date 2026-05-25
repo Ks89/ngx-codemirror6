@@ -7,7 +7,7 @@
           Enable the fold state and optionally show a fold gutter next to the line numbers.
         </p>
         <ul class="doc-list">
-          <li><strong>Inputs</strong> such as <code>[codeFolding]</code> and <code>[foldGutter]</code> enable folding extensions.</li>
+          <li><strong>Inputs</strong> such as <code>[codeFolding]</code>, <code>[foldGutter]</code>, and <code>[foldKeymap]</code> enable folding extensions and shortcuts.</li>
           <li><strong>Config inputs</strong> such as <code>[codeFoldingConfig]</code> and <code>[foldGutterConfig]</code> customize the folded placeholder and the gutter markers.</li>
           <li><strong>Outputs</strong> are NOT emitted for folding state; read it with methods such as <code>getFoldedRanges()</code>.</li>
           <li><strong>Template reference</strong>: <code>#editor</code> exposes public methods such as <code>foldAll()</code>, <code>unfoldAll()</code>, and <code>toggleFold()</code> to button handlers.</li>
@@ -42,7 +42,7 @@
             <span>Configured with</span>
             <span>
               <code>[codeFolding]="true"</code>, <code>[codeFoldingConfig]</code>, <code>[foldGutter]="true"</code>,
-              <code>[foldGutterConfig]</code>, and <code>#editor</code> for method buttons.
+              <code>[foldGutterConfig]</code>, <code>[foldKeymap]="true"</code>, and <code>#editor</code> for method buttons.
             </span>
             <span>Try it</span>
             <span>
@@ -61,7 +61,8 @@
             [codeFolding]="true"
             [codeFoldingConfig]="state.advancedCodeFoldingConfig"
             [foldGutter]="true"
-            [foldGutterConfig]="state.advancedFoldGutterConfig">
+            [foldGutterConfig]="state.advancedFoldGutterConfig"
+            [foldKeymap]="true">
           </ks-codemirror>
         </div>
         <aside class="event-panel">

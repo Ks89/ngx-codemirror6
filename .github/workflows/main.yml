@@ -1,0 +1,51 @@
+name: angular-modal-gallery
+
+on:
+  push:
+    paths-ignore:
+      - 'node_modules'
+
+jobs:
+
+  angular-modal-gallery:
+    name: "angular-modal-gallery"
+    timeout-minutes: 20
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [ 24.x ]
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Switch to a specific npm version
+        run: |
+          npm install -g npm@11
+          npm cache verify
+
+      - name: Installing all deps
+        run: |
+          npm ci
+
+      - name: Building main web app
+        run: |
+          npm run build:lib
+          npm run build:main:dev
+          npm run build:main:prod
+
+      - name: Running tests
+        run: |
+          npm test
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: './coverage/ks89/angular-modal-gallery/lcov.info'

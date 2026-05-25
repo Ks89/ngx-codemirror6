@@ -42,8 +42,23 @@ alt="NPMLicense"></a>
 
 <br />
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Ks89/ngx-codemirror6/master/readme-images/preview.png" alt="@ks89/ngx-codemirror6" 
-width="200">
+  <img src="./readme-images/1.png" alt="@ks89/ngx-codemirror6" 
+width="1024">
+</p>
+<br />
+<p align="center">
+  <img src="./readme-images/2.png" alt="@ks89/ngx-codemirror6" 
+width="1024">
+</p>
+<br />
+<p align="center">
+  <img src="./readme-images/3.png" alt="@ks89/ngx-codemirror6" 
+width="1024">
+</p>
+<br />
+<p align="center">
+  <img src="./readme-images/4.png" alt="@ks89/ngx-codemirror6" 
+width="1024">
 </p>
 <br />
 
@@ -74,8 +89,7 @@ npm i --save @codemirror/lang-javascript
 | Angular 18 |        = 2.0.1        |
 | Angular 19 |        = 2.0.1        |
 | Angular 20 |        = 2.0.1        |
-| Angular 21 |        = 3.0.0        |
-| Angular 22 |      &gt;= 4.0.0      |
+| Angular 21 |      &gt;= 4.0.0      |
 
 <br />
 

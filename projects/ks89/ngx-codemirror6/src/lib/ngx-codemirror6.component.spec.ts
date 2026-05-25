@@ -237,6 +237,16 @@ describe('CodemirrorComponent', () => {
     expect(fixture.nativeElement.textContent).toContain('OPEN');
   });
 
+  it('applies default syntax highlighting without an explicit theme', async () => {
+    const fixture = TestBed.createComponent(CodemirrorComponent);
+    fixture.componentInstance.content = 'const value = 1;';
+    fixture.componentInstance.language = javascript();
+    fixture.componentInstance.theme = [];
+    await detectChanges(fixture);
+
+    expect(fixture.nativeElement.querySelector('.cm-line span[class]')).not.toBeNull();
+  });
+
   it('destroys the CodeMirror view with the component', async () => {
     const destroySpy = spyOn(EditorView.prototype, 'destroy').and.callThrough();
     const fixture = TestBed.createComponent(HostComponent);
