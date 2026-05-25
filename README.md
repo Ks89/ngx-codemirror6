@@ -126,7 +126,7 @@ and other runtime behavior that executes in the host Angular application.
 
 ## :fire: News :fire:
 
-- ??/??/2026 - 4.0.0 - @ks89/ngx-codemirror6 - [HERE](https://github.com/Ks89/ngx-codemirror6/releases)
+- 26/05/2026 - 4.0.0 - @ks89/ngx-codemirror6 - [HERE](https://github.com/Ks89/ngx-codemirror6/releases)
 - 26/12/2025 - 3.0.0 - @ks89/ngx-codemirror6 - [HERE](https://github.com/Ks89/ngx-codemirror6/releases)
 - 30/05/2024 - 2.0.1 - @ks89/ngx-codemirror6 - [HERE](https://github.com/Ks89/ngx-codemirror6/releases)
 - 30/05/2024 - 2.0.0 - @ks89/ngx-codemirror6 - [HERE](https://github.com/Ks89/ngx-codemirror6/releases)
