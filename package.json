@@ -25,7 +25,7 @@
     "build:main": "npm run build:main:dev",
     "build:main:dev": "ng build --configuration development",
     "build:main:prod": "ng build --configuration production",
-    "build:main:release": "ng build --configuration release --base-href /ngx-codemirror6.github.io/ --deploy-url /ngx-codemirror6.github.io/",
+    "build:main:release": "ng build --configuration=release --base-href /ngx-codemirror6.github.io/ --deploy-url /ngx-codemirror6.github.io/",
     "clean": "npm run clean:main",
     "clean:main": "npm run clean:dist && npm run clean:coverage",
     "clean:dist": "rimraf @ks89 dist",
