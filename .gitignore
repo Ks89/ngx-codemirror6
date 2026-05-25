@@ -42,8 +42,5 @@ Thumbs.db
 **/@ks89/
 .angular/
 
-# Docs
-docs/
-
 # Tests
 **/coverage/
