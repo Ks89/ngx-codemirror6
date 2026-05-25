@@ -116,14 +116,6 @@ export class AppComponent {
 
 <br />
 
-## Security notes
-
-The `language` and `appendExtensions` inputs accept CodeMirror extensions and pass them directly to the editor configuration.
-Only provide extensions from trusted code. CodeMirror extensions can register callbacks, event handlers, plugins,
-and other runtime behavior that executes in the host Angular application.
-
-<br />
-
 ## :fire: News :fire:
 
 - 26/05/2026 - 4.0.0 - @ks89/ngx-codemirror6 - [HERE](https://github.com/Ks89/ngx-codemirror6/releases)
