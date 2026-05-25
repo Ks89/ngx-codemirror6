@@ -43,9 +43,3 @@ jobs:
       - name: Running tests
         run: |
           npm test
-
-      - name: Coveralls
-        uses: coverallsapp/github-action@v2
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: './coverage/ks89/angular-modal-gallery/lcov.info'
